@@ -4,14 +4,20 @@
 import sys
 import argparse
 from PyQt5 import QtWidgets, QtCore, QtGui
-from model import PointCloudModel
-from view import PointCloudView
-from controller import PointCloudController
-from loader import PointCloudLoaderThread
+try:
+    from .model import PointCloudModel
+    from .view import PointCloudView
+    from .controller import PointCloudController
+    from .loader import PointCloudLoaderThread
+except ImportError:
+    from model import PointCloudModel
+    from view import PointCloudView
+    from controller import PointCloudController
+    from loader import PointCloudLoaderThread
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("input_file", help="入力点群ファイル (.pcd または .ply)")
+    parser.add_argument("input_file", help="入力点群ファイルまたはディレクトリ (.pcd/.ply, plain_slam_ros2 map_cloud*.pcd に対応)")
     parser.add_argument("output_dir", help="出力先ディレクトリ")
     args = parser.parse_args()
 

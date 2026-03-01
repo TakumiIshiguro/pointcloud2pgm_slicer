@@ -4,6 +4,7 @@
 これは点群データ（.pcdまたは.ply形式）からPGM画像を生成するプログラムです。 \
 点群データをユーザが指定する高さ（z軸方向）範囲で抽出し、XY平面に投影して二値化することでPGM画像を生成します。 \
 加えて、画像に対応するパラメータ（解像度や原点、閾値など）を記述したYAMLファイルも生成します。
+`plain_slam_ros2` が出力する `map_cloud*.pcd` を含むディレクトリ入力にも対応しています。
 
 ## デモ動画
 [![](https://img.youtube.com/vi/gKtSeKtFF_E/0.jpg)](https://www.youtube.com/watch?v=gKtSeKtFF_E&ab_channel=caffeline)
@@ -31,7 +32,7 @@ pip install -e .
 ```
 3. 実行
 ```bash
-python3 -m pointcloud2pgm_slicer.main <input_file.pcd> <output_directory>
+python3 -m pointcloud2pgm_slicer.main <input_file_or_directory> <output_directory>
 ```
 ### 2. 直接実行する方法
 1. 依存関係のインストール
@@ -40,7 +41,7 @@ pip install -r requirements.txt
 ```
 2. 実行
 ```bash
-python3 pointcloud2pgm_slicer/main.py <input_file.pcd> <output_directory>
+python3 pointcloud2pgm_slicer/main.py <input_file_or_directory> <output_directory>
 ```
 
 ## **GUIの操作**
