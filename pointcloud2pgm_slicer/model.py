@@ -10,7 +10,10 @@ import numpy as np
 import open3d as o3d
 import pyvista as pv
 from typing import Optional, Tuple
-from config import MIN_OCCUPIED_POINTS, VOXEL_SIZE
+try:
+    from .config import MIN_OCCUPIED_POINTS, VOXEL_SIZE
+except ImportError:
+    from config import MIN_OCCUPIED_POINTS, VOXEL_SIZE
 
 class IPointCloudModel(ABC):
     @abstractmethod

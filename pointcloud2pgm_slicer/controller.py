@@ -7,8 +7,12 @@ ModelとViewの仲介および各種ロジック処理
 import sys
 import numpy as np
 from PyQt5 import QtWidgets, QtCore
-from model import IPointCloudModel
-from view import IPointCloudView
+try:
+    from .model import IPointCloudModel
+    from .view import IPointCloudView
+except ImportError:
+    from model import IPointCloudModel
+    from view import IPointCloudView
 
 class PointCloudController:
     def __init__(
